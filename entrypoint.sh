@@ -31,7 +31,7 @@ echo "Starting CMS Web Services..."
 # NOTE: EvaluationService and ResourceService are disabled because Render blocks isolate (cgroups).
 su - cmsuser -c "/home/cmsuser/cms/bin/cmsLogService" &
 su - cmsuser -c "/home/cmsuser/cms/bin/cmsAdminWebServer" &
-su - cmsuser -c "/home/cmsuser/cms/bin/cmsContestWebServer" &
+# su - cmsuser -c "/home/cmsuser/cms/bin/cmsContestWebServer" &
 
 echo "CMS Web Servers are running!"
 echo "Admin UI is exposed. Note: Render only forwards ONE port publicly to the web service."

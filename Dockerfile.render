@@ -28,7 +28,9 @@ RUN echo "host all all 127.0.0.1/32 trust" >> /etc/postgresql/16/main/pg_hba.con
 RUN useradd -ms /bin/bash -u 2000 cmsuser && \
     usermod -aG sudo cmsuser && \
     usermod -aG isolate cmsuser && \
-    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
+    mkdir -p /home/cmsuser/src && \
+    chown -R cmsuser:cmsuser /home/cmsuser/src
 
 WORKDIR /home/cmsuser/src
 COPY --chown=cmsuser:cmsuser . /home/cmsuser/src/

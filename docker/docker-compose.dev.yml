@@ -18,6 +18,8 @@ services:
     cgroup: host
     command: >
       wait-for-it devdb:5432 -- bash
+    tty: true
+    stdin_open: true
     ports:
       - 8888:8888
       - 8889:8889

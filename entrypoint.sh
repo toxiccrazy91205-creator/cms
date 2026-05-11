@@ -14,7 +14,7 @@ done
 if ! su - postgres -c "psql -lqt | cut -d \| -f 1 | grep -qw cmsdb"; then
     echo "Initializing CMS Database..."
     su - postgres -c "createdb cmsdb"
-    su - postgres -c "createuser cmsuser"
+    su - postgres -c "createuser -s cmsuser"
     su - postgres -c "psql -c \"ALTER USER cmsuser WITH PASSWORD 'cms';\""
     
     # Initialize the CMS DB Schema

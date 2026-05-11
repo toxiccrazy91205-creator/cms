@@ -44,6 +44,8 @@ ENV PATH="/home/cmsuser/cms/bin:$PATH"
 # Setup configuration to point to local postgres
 RUN sed -e 's|/cmsuser:your_password_here@localhost:5432/cmsdb"|/cmsuser:cms@127.0.0.1:5432/cmsdb"|' \
         -e 's/127.0.0.1/0.0.0.0/' \
+        -e 's/listen_port = \[8888\]/listen_port = \[8889\]/' \
+        -e 's/listen_port = 8889/listen_port = 8888/' \
         ./config/cms.sample.toml > ../cms/etc/cms.toml
 
 
